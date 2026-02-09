@@ -10,6 +10,7 @@ namespace PersonalBlog.Data
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Articles> Articles { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -21,9 +22,18 @@ namespace PersonalBlog.Data
                 .ValueGeneratedOnAdd();
                 tb.Property(col => col.name).HasMaxLength(50);
                 tb.Property(col => col.password).HasMaxLength(255);
-                tb.Property(col => col.description).HasMaxLength(255);
             });
             modelBuilder.Entity<User>().ToTable("User");
+
+            modelBuilder.Entity<Articles>(tb =>
+            {
+                tb.HasKey(col => col.ArticleId);
+                tb.Property(col => col.PublishingDate).HasDefaultValueSql("GETUTCDATE()");
+                tb.Property(col => col.Title).HasMaxLength(50);
+                tb.Property(col => col.Content).HasMaxLength(2000);
+
+            });
+            modelBuilder.Entity<Articles>().ToTable("Articles");
         }
     }
 }

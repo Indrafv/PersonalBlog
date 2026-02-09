@@ -1,0 +1,32 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<PersonalBlog.Models.Articles>;
+
+    <div class="row">
+        <div class="col-sm-8 offset-sm-2">
+            <h2>Articles</h2>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                    <th>Title</th>
+                    <th>Publishing Date</th>
+                    <th>Content</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach(var article in Model)
+                {
+                    <tr>
+                        <td>@article.Title</td>
+                        <td>@article.PublishingDate.ToString("dd/MM/yyyy")</td>
+                        <td>@article.Content</td>
+                    </tr>
+                }
+            </tbody>
+            </table>
+        </div>
+    </div>
