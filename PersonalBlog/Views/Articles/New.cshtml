@@ -1,0 +1,20 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model PersonalBlog.Models.Articles;
+
+<div class="row">
+    <div class="col-sm-8 offset-sm-2">
+        <h2>New Article</h2>
+        <form>
+            <div class="mb-3">
+                <input class="form-control" asp-for="Title" type="text" placeholder="Article Title"/>
+                <input class="form-control" placeholder="Publishing Date"/>
+                <textarea class="form-control" placeholder="Content">
+                </textarea>
+            </div>
+        </form>
+    </div>
+</div>

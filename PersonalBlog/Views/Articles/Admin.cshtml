@@ -1,0 +1,17 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<PersonalBlog.Models.Articles>;
+
+<h1>Personal Blog - Indra</h1>
+<br />
+@foreach (var article in Model)
+{
+    <div class="row">
+        <p>@article.Title</p>
+        <p>Edit</p>
+        <p>Delete</p>
+    </div>
+}

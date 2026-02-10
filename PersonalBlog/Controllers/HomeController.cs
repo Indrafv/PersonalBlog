@@ -1,14 +1,23 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using PersonalBlog.Models;
+using PersonalBlog.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace PersonalBlog.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly AppDbContext _appDbContext;
+        public HomeController(AppDbContext appDbContext)
         {
-            return View();
+            _appDbContext = appDbContext;
+        }
+        [HttpGet]
+        public async Task<IActionResult> Index()
+        {
+            List<Articles> Posts = await _appDbContext.Articles.ToListAsync();
+            return View(Posts);
         }
 
         public IActionResult Privacy()

@@ -13,10 +13,21 @@ namespace PersonalBlog.Controllers
             _appDbContext = appDbContext;
         }
         [HttpGet]
-        public async Task<IActionResult> Articles()
+        public async Task<IActionResult> Posts()
         {
             List<Articles> Articles = await _appDbContext.Articles.ToListAsync();
             return View(Articles);
+        }
+
+        public IActionResult New()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> Admin()
+        {
+            List<Articles> Posts = await _appDbContext.Articles.ToListAsync();
+            return View(Posts);
         }
     }
 }
