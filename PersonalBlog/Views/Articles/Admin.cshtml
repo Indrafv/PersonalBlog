@@ -10,8 +10,19 @@
 @foreach (var article in Model)
 {
     <div class="row">
-        <p>@article.Title</p>
-        <p>Edit</p>
-        <p>Delete</p>
+        <div class="col">
+            <p>@article.Title</p>
+        </div>
+        <div class="col">
+            <a 
+                asp-controller="Articles"
+                asp-action="Edit"
+                asp-route-id="@article.ArticleId"
+                class="btn btn-outline-primary">Editar
+            </a>
+        </div>
+        <div class="col">
+            <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+        </div>
     </div>
 }

@@ -29,7 +29,7 @@ namespace PersonalBlog.Data
             {
                 tb.HasKey(col => col.ArticleId);
                 tb.Property(col => col.PublishingDate).HasDefaultValueSql("GETUTCDATE()");
-                tb.Property(col => col.Title).HasMaxLength(50);
+                tb.Property(col => col.Title).HasMaxLength(100);
                 tb.Property(col => col.Content).HasMaxLength(2000);
 
             });

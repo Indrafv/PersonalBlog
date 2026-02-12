@@ -3,13 +3,13 @@
 *@
 @{
 }
-@model List<PersonalBlog.Models.Articles>;
+@model PersonalBlog.Models.Articles;
 
 <h1>Article</h1>
 <div class="card" style="width: 18rem;">
     <div class="card-body">
-        <h5 class="card-title">Article Title</h5>
-        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+        <h5 class="card-title">@Model.Title</h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary">@Model.PublishingDate.ToString("dd/MM/yyyy");</h6>
+        <p class="card-text">@Model.Content</p>
     </div>
 </div>
