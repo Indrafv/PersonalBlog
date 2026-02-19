@@ -1,11 +1,11 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-@model List<PersonalBlog.Models.Articles>;
+﻿@model List<PersonalBlog.Models.Articles>;
+@using System.Security.Claims;
 
-<h1>Personal Blog - Indra</h1>
+
+@if (User.Identity!.IsAuthenticated)
+{
+    <h1 class="display-4">Bienvenido @User.Claims.Where(c => c.Type == ClaimTypes.Name).Select(c => c.Value).SingleOrDefault()  al Panel de administrador</h1>
+}
 <br />
 @foreach (var article in Model)
 {

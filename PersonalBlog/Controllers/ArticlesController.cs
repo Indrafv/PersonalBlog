@@ -3,6 +3,7 @@ using PersonalBlog.Data;
 using PersonalBlog.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PersonalBlog.Controllers
 {
@@ -24,11 +25,13 @@ namespace PersonalBlog.Controllers
             return View(Articles);
         }
         [HttpGet]
+        [Authorize]
         public IActionResult New()
         {
             return View();
         }
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> New(Articles article)
         {
             
@@ -38,6 +41,7 @@ namespace PersonalBlog.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> Edit(int id)
         {
             Articles article = await _appDbContext.Articles.FirstAsync(a => a.ArticleId ==id);
@@ -45,6 +49,7 @@ namespace PersonalBlog.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Edit(Articles article)
         {
 
@@ -54,6 +59,7 @@ namespace PersonalBlog.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> Delete(int id)
         {
             Articles article = await _appDbContext.Articles.FirstAsync(a => a.ArticleId == id);
@@ -63,6 +69,7 @@ namespace PersonalBlog.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> Admin()
         {
             List<Articles> Posts = await _appDbContext.Articles.ToListAsync();

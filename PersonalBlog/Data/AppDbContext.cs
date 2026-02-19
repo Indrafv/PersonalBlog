@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using PersonalBlog.Models;
 namespace PersonalBlog.Data
 {
@@ -34,6 +35,15 @@ namespace PersonalBlog.Data
 
             });
             modelBuilder.Entity<Articles>().ToTable("Articles");
+
+            modelBuilder.Entity<User>().HasData(
+                new User
+                {
+                    IdUser = 1,
+                    name = "admin",
+                    password = "AQAAAAEAACcQAAAAEJDVZTSWeBEQCWO7SRb8hWlq6iABcUMWRZMxViYES8AwIaZrXzTytghkgFYZYPl7Jw=="
+                }
+                );
         }
     }
 }

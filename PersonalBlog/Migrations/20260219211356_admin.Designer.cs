@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PersonalBlog.Data;
 
@@ -11,9 +12,11 @@ using PersonalBlog.Data;
 namespace PersonalBlog.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260219211356_admin")]
+    partial class admin
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -77,7 +80,7 @@ namespace PersonalBlog.Migrations
                         {
                             IdUser = 1,
                             name = "admin",
-                            password = "AQAAAAEAACcQAAAAEBD1bWCP9WNPPBK/VD8R4FBe/TlNQZ2PDH/SvlCR/R8vVhaR1JCHZSDgr5hPSlP8wA=="
+                            password = "AQAAAAIAAYagAAAAEMYq1xJ2VwMtopO4udI43FAgICG1JAnZJRvSqAzgOZnVNBLpBW/z3b84PLWSzIVy7A=="
                         });
                 });
 #pragma warning restore 612, 618
