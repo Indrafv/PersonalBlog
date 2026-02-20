@@ -1,15 +1,42 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model PersonalBlog.Models.Articles;
 @{
+    ViewData["Title"] = Model.Title;
 }
-@model PersonalBlog.Models.Articles;
 
-<h1>Article</h1>
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title">@Model.Title</h5>
-        <h6 class="card-subtitle mb-2 text-body-secondary">@Model.PublishingDate.ToString("dd/MM/yyyy");</h6>
-        <p class="card-text">@Model.Content</p>
+<div class="row justify-content-center pt-4 pb-5">
+    <div class="col-lg-8">
+        <a asp-controller="Home" asp-action="Index" class="btn btn-link text-decoration-none text-muted p-0 mb-4 hover-lift d-inline-flex align-items-center">
+            <i class="fa-solid fa-arrow-left me-2"></i>Back to Articles
+        </a>
+        
+        <article class="card border-0 bg-transparent">
+            <header class="mb-4">
+                <h1 class="display-4 fw-bold mb-3 text-dark">@Model.Title</h1>
+                <div class="d-flex align-items-center text-muted">
+                    <span class="badge bg-primary bg-opacity-10 text-primary rounded-pill px-3 py-2 fw-medium me-3">
+                        <i class="fa-regular fa-calendar me-1"></i> @Model.PublishingDate.ToString("MMM dd, yyyy")
+                    </span>
+                    <span class="small"><i class="fa-regular fa-clock me-1"></i> 5 min read</span>
+                </div>
+            </header>
+            
+            <div class="card-body p-0 mt-3">
+                <div class="fs-5 lh-lg text-dark" style="white-space: pre-wrap;">@Model.Content</div>
+            </div>
+            
+            <footer class="mt-5 pt-4 border-top border-subtle">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="bg-primary bg-opacity-10 rounded-circle p-3 text-primary d-flex align-items-center justify-content-center" style="width: 48px; height: 48px;">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-0 fw-bold">Indra</h6>
+                            <span class="text-muted small">Author</span>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </article>
     </div>
 </div>

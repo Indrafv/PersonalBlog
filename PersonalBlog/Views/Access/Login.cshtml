@@ -1,27 +1,45 @@
 ﻿@model PersonalBlog.ViewModel.LoginVM;
+@{
+    ViewData["Title"] = "Log In";
+}
 
-<div class="row mt-5 justify-content-center">
-    <div class="col-sm-4">
-        <div class="card">
-            <div class="card-header">
-                Log In
-            </div>
-            <div class="card-body">
+<div class="row justify-content-center align-items-center" style="min-height: 60vh;">
+    <div class="col-md-6 col-lg-5 col-xl-4">
+        <div class="card border-0 rounded-4 custom-shadow glass-navbar">
+            <div class="card-body p-5">
+                <div class="text-center mb-4">
+                    <div class="d-inline-flex bg-primary bg-opacity-10 rounded-circle p-3 mb-3 text-primary">
+                        <i class="fa-solid fa-user-lock fa-2x"></i>
+                    </div>
+                    <h3 class="fw-bold">Welcome Back</h3>
+                    <p class="text-muted small">Please enter your details to sign in.</p>
+                </div>
+
                 <form asp-controller="Access" asp-action="Login" method="post">
-                    <input class="form-control mb-3" type="text" placeholder="Username" required asp-for="Name" />
-                    <input class="form-control mb-3" type="password" placeholder="Password" required asp-for="Password" />
+                    <div class="form-floating mb-3">
+                        <input class="form-control" type="text" id="usernameInput" placeholder="Username" required asp-for="Name" />
+                        <label for="usernameInput" class="text-muted"><i class="fa-regular fa-user me-2"></i>Username</label>
+                    </div>
                     
-                    <div class="d-grid gap-2 mb-3">
-                        <button class="btn btn-outline-primary" type="submit">Login</button>
+                    <div class="form-floating mb-4">
+                        <input class="form-control" type="password" id="passwordInput" placeholder="Password" required asp-for="Password" />
+                        <label for="passwordInput" class="text-muted"><i class="fa-solid fa-lock me-2"></i>Password</label>
+                    </div>
+                    
+                    <div class="d-grid mb-3">
+                        <button class="btn btn-primary btn-lg rounded-pill fw-bold hover-lift py-2" type="submit">
+                            Sign In <i class="fa-solid fa-arrow-right-to-bracket ms-2"></i>
+                        </button>
                     </div>
 
                     @if(ViewData["Message"] != null)
-                        {
-                            <div class="alert alert-danger" role="alert">
-                                @ViewData["Message"];
-                            </div>
-                        }
-                    </form>
+                    {
+                        <div class="alert alert-danger bg-danger bg-opacity-10 border-danger text-danger border-opacity-25 rounded-3 d-flex align-items-center mt-4 mb-0" role="alert">
+                            <i class="fa-solid fa-circle-exclamation me-2"></i>
+                            <div>@ViewData["Message"]</div>
+                        </div>
+                    }
+                </form>
             </div>
         </div>
     </div>
