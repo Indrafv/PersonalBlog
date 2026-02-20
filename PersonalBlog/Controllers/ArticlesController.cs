@@ -34,7 +34,7 @@ namespace PersonalBlog.Controllers
         [Authorize]
         public async Task<IActionResult> New(Articles article)
         {
-            
+            article.PublishingDate = DateTime.Today;
             await _appDbContext.Articles.AddAsync(article);
             await _appDbContext.SaveChangesAsync();
             return RedirectToAction(nameof(Posts), new {id = article.ArticleId});
